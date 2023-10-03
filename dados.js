@@ -1,4 +1,4 @@
-log("cheguei aqui");
+console.log("cheguei aquigi");
 const express = require("express");
 const main = require("./conn");
 const Projetos = require("./model");
