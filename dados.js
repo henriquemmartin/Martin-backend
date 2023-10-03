@@ -1,3 +1,4 @@
+log("cheguei aqui");
 const express = require("express");
 const main = require("./conn");
 const Projetos = require("./model");
