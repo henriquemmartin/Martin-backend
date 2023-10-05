@@ -4,6 +4,7 @@ const main = require("./conn");
 const Projetos = require("./model");
 const { adiciona_valor, atualiza_valor, deleta_valor } = require("./adiciona");
 main();
+console.log("SAIU DE MAIN");
 const app = express();
 var cors = require("cors");
 app.use(express.json({ extended: true }));
@@ -14,7 +15,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
+  console.log("conectado a porta " + PORT);
   app.get("/arquivo", (req, res) => {
     res.send(dadosLidos);
   });
