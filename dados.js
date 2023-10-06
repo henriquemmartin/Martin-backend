@@ -15,8 +15,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.listen(PORT, () => {
-  console.log("conectado a porta " + PORT);
+app.listen(3000, () => {
+  console.log("conectado a porta " + 3000);
   app.get("/arquivo", (req, res) => {
     res.send(dadosLidos);
   });
