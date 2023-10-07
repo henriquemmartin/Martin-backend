@@ -35,7 +35,7 @@ app.post("/message", (req, res) => {
 app.put("/message", (req, res) => {
   const texto = req.body;
   atualiza_valor(texto);
-  res.send("cadastrado com sucesso");
+  res.send("Atualizado com sucesso");
 });
 app.delete("/message", (req, res) => {
   const texto = req.body;

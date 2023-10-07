@@ -12,6 +12,7 @@ const projetosSchema = new mongoose.Schema(
     gourmet: { type: Number, required: true },
     descricao: { type: String, required: true },
     vendas: { type: Number, required: true },
+    linkv: { type: String, required: true },
   },
   { timestamps: true }
 );
