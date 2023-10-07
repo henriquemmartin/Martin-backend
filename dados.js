@@ -18,14 +18,13 @@ app.use((req, res, next) => {
 app.listen(3000, () => {
   console.log("conectado a porta " + 3000);
   app.get("/arquivo", (req, res) => {
-    console.log("solicitando o get");
+    console.log("solicitando o geti");
     res.send(dadosLidos);
   });
 });
 var dadosLidos = [];
 async function ler() {
   dadosLidos = await Projetos.find();
-  console.log(dadosLidos);
 }
 
 app.post("/message", (req, res) => {
