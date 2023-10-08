@@ -24,6 +24,7 @@ app.listen(3000, () => {
 });
 var dadosLidos = [];
 async function ler() {
+  console.log("leitura de banco de dados");
   dadosLidos = await Projetos.find();
 }
 
@@ -32,17 +33,20 @@ app.post("/message", (req, res) => {
   adiciona_valor(texto);
   console.log(texto);
   res.send("cadastrado com sucesso");
+  ler();
 });
 app.put("/message", (req, res) => {
   const texto = req.body;
   atualiza_valor(texto);
   console.log(texto);
   res.send("Atualizado com sucesso");
+  ler();
 });
 app.delete("/message", (req, res) => {
   const texto = req.body;
   deleta_valor(texto);
   res.send("Deletado com Sucesso");
+  ler();
 });
 
 ler();
