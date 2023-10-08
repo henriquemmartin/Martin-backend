@@ -32,15 +32,15 @@ app.post("/message", (req, res) => {
   const texto = req.body;
   adiciona_valor(texto);
   console.log(texto);
-  res.send("cadastrado com sucesso");
   ler();
+  res.send("Adicionado com Sucesso");
 });
 app.put("/message", (req, res) => {
   const texto = req.body;
   atualiza_valor(texto);
   console.log(texto);
-  res.send("Atualizado com sucesso");
   ler();
+  res.send("Atualizado com Sucesso");
 });
 app.delete("/message", (req, res) => {
   const texto = req.body;
