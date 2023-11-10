@@ -7,3 +7,4 @@ async function main() {
   console.log("conectado ao bando de dados Primario");
 }
 module.exports = main;
+//ok
