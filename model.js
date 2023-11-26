@@ -13,6 +13,7 @@ const projetosSchema = new mongoose.Schema(
     descricao: { type: String },
     vendas: { type: Number },
     linkv: { type: String },
+    drive: { type: String },
   },
   { timestamps: true }
 );
