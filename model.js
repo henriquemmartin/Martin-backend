@@ -15,6 +15,7 @@ const projetosSchema = new mongoose.Schema(
     linkv: { type: String },
     link2: { type: String },
     drive: { type: String },
+    categoria: { type: String },
   },
   { timestamps: true }
 );
