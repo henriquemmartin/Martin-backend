@@ -1,10 +1,17 @@
-console.log("cheguei aquigi");
+console.log("INICIANDO DADOS.JS");
 const express = require("express");
 const main = require("./conn");
 const Projetos = require("./model");
-const { adiciona_valor, atualiza_valor, deleta_valor } = require("./adiciona");
+const Contagem = require("./model2");
+const enviarEmail = require("./enviarEmail");
+const {
+  adiciona_valor,
+  atualiza_valor,
+  deleta_valor,
+  adiciona_valor2,
+} = require("./adiciona");
 main();
-console.log("SAIU DE MAIN");
+console.log("DE VOLTA A DADOS.JS");
 const app = express();
 var cors = require("cors");
 app.use(express.json({ extended: true }));
@@ -14,18 +21,23 @@ app.use((req, res, next) => {
   console.log("middware ativado");
   next();
 });
-
+//DADOS REFERENTES A PROJETOS
 app.listen(3000, () => {
   console.log("conectado a porta " + 3000);
   app.get("/arquivo", (req, res) => {
     console.log("solicitando o geti");
     res.send(dadosLidos);
   });
+  app.get("/movimento", (req, res) => {
+    console.log("solicitando o geti");
+    res.send(contagemLidos);
+  });
 });
 var dadosLidos = [];
 async function ler() {
-  console.log("leitura de banco de dados");
+  console.log("função ler()");
   dadosLidos = await Projetos.find();
+  console.log("dados lidos com sucesso!");
 }
 
 app.post("/message", (req, res) => {
@@ -49,6 +61,28 @@ app.delete("/message", (req, res) => {
   ler();
 });
 
+//DADOS REFERENTES A CONTAGEM
+
+var contagemLidos = [];
+async function ler2() {
+  console.log("função ler2()");
+  contagemLidos = await Contagem.find();
+  console.log("contagem dados lidos com sucesso!");
+}
+
+app.post("/contagem", (req, res) => {
+  const texto2 = req.body;
+  adiciona_valor2(texto2);
+  if (texto2.informacao == "***CLICOU EM COMPRAR (whatsapp)***") {
+    console.log("EMAIL");
+
+    enviarEmail(texto2.pagina).catch(console.error);
+  }
+  ler2();
+  res.send("Adicionado com Sucesso");
+});
 ler();
+ler2();
 module.exports = { dadosLidos };
-//MartinQwer2
+
+//qhRSIHJmqU9UrsTi

@@ -1,3 +1,4 @@
+console.log("ENTROU EM MODEL.JS");
 const mongoose = require("mongoose");
 const projetosSchema = new mongoose.Schema(
   {
