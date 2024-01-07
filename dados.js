@@ -66,7 +66,7 @@ app.delete("/message", (req, res) => {
 var contagemLidos = [];
 async function ler2() {
   console.log("função ler2()");
-  contagemLidos = await Contagem.find().limit(10);
+  contagemLidos = await Contagem.find().sort({ _id: -1 }).limit(10);
   console.log("contagem dados lidos com sucesso!");
 }
 
