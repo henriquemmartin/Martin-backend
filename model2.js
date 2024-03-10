@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 const contadorSchema = new mongoose.Schema(
   {
     pagina: { type: String, required: true },
-    informacao: { type: String, required: true },
-    contagem: { type: Number, required: true },
+    informacao: { type: String, required: false },
   },
   { timestamps: true }
 );
