@@ -8,7 +8,7 @@ const {
   adiciona_valor,
   atualiza_valor,
   deleta_valor,
-  adiciona_valor2,
+  adiciona_valor2
 } = require("./adiciona");
 main();
 console.log("DE VOLTA A DADOS.JS");
@@ -75,11 +75,17 @@ app.post("/contagem", (req, res) => {
   adiciona_valor2(texto2);
   if (texto2.informacao == "***CLICOU EM COMPRAR (whatsapp)***") {
     console.log("EMAIL");
-
     enviarEmail(texto2.pagina).catch(console.error);
   }
   ler2();
   res.send("Adicionado com Sucesso");
+});
+app.post("/venda", (req, res) => {
+  // const texto3 = req.body;
+  // adiciona_valor3(texto3);
+  console.log(texto3);
+  // ler3();
+  res.send("Vendas Adicionado com Sucesso");
 });
 ler();
 ler2();

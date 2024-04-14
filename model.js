@@ -15,6 +15,7 @@ const projetosSchema = new mongoose.Schema(
     vendas: { type: Number },
     linkv: { type: String },
     link2: { type: String },
+    tour: { type: String },
     drive: { type: String },
     categoria: { type: String },
   },
